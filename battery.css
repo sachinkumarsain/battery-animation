@@ -10,25 +10,45 @@
     display: flex;
     align-items: center;
     background-color: rgb(0, 0, 0);
+    background: #E55D87;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #5FC3E4, #E55D87);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #5FC3E4, #E55D87); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .batterybox {
     width: 60%;
     height: 400px;
+    border-radius: 7px;
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    background: #1D976C;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #93F9B9, #1D976C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
 }
 
 .battery {
-    border: 15px solid yellow;
+    border: 15px solid rgb(15, 65, 2);
     width: 440px;
     height: 190px;
     position: relative;
     padding: 10px;
     border-radius: 5px;
+    animation: charge 0.8s 6s 10;
+    transition: all0 0.2 ease;
+    flex-direction: column;
+    
+    
+}
+@keyframes charge{
+    0%{transform: scale(); }
+    50%{transform:  scale(1.0); }
+    100%{transform:  scale(0); }
+    
 }
 
 .battery::before {
@@ -38,15 +58,22 @@
     right: -56px;
     width: 25px;
     height: 35px;
-    border: 15px solid yellow;
+    border: 15px solid  rgb(15, 65, 2);
     border-radius: 5px;
+    animation: dibi 0.5 7s forwards;
+
+    
+}
+@keyframes dibi{
+    0%{background-color: #1D976C;}
+    100%{background-color: rgb(48, 97, 26) ;}
 }
 
 .pin {
     width: 100%;
     height:100%;
     animation: charging 4s linear ;
-    background-color: yellow;
+    background-color: rgb(48, 97, 26);
     border-radius: 4px;
     z-index: 1;
     align-items: center;
@@ -61,16 +88,45 @@
 }
 
 .icon{
-    width: 40%px;
+    position: fixed;
+    left: 38%;
     z-index:2;
     font-size: 80px;
     border-radius: 0px;
-    animation: full 1s 4s linear ;
+    opacity: 0;
+    color: rgb(23, 34, 21);;
+    animation: full 0.5s 4s linear forwards ;
 }
 @keyframes full{
-    0%{font-size: 0px; color: yellow;}
-    100%{font-size: 80px; color: white;}
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+    
 }
-i{
-    color: white;
+.cable{
+    width: 250px;
+    height: 20px;
+    background-color: rgb(15, 65, 2) ;
+    position: relative;
+    border-radius: 5px;
+    animation: on 0.5s 5s forwards ;
+    opacity: 1;
+}
+.cable:before{
+    content: "";
+    position: absolute;
+    border-radius: 5px;
+    bottom: -10px;
+    left: -30px;
+    width: 50px;
+    height: 40px;
+    background-color:  rgb(15, 65, 2);
+    
+}
+@keyframes on{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
 }
