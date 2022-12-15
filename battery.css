@@ -1,0 +1,76 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+}
+
+.batterybox {
+    width: 60%;
+    height: 400px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.battery {
+    border: 15px solid yellow;
+    width: 440px;
+    height: 190px;
+    position: relative;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.battery::before {
+    content: "";
+    position: absolute;
+    top: 45px;
+    right: -56px;
+    width: 25px;
+    height: 35px;
+    border: 15px solid yellow;
+    border-radius: 5px;
+}
+
+.pin {
+    width: 100%;
+    height:100%;
+    animation: charging 4s linear ;
+    background-color: yellow;
+    border-radius: 4px;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    
+
+    
+}
+@keyframes charging{
+    0%{width: 0%;}
+}
+
+.icon{
+    width: 40%px;
+    z-index:2;
+    font-size: 80px;
+    border-radius: 0px;
+    animation: full 1s 4s linear ;
+}
+@keyframes full{
+    0%{font-size: 0px; color: yellow;}
+    100%{font-size: 80px; color: white;}
+}
+i{
+    color: white;
+}
